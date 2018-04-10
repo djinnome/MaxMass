@@ -24,9 +24,9 @@ class MinGenome(object):
             offrxn_df = pandas.read_csv(offrxn_f,header=None)
             # add bound to constrain the flux of these reactions to be zero
 
-        model.optimize()
-        print model.solution.status
-        print model.solution.f
+        solution = model.optimize()
+        print solution.status
+        print solution.f
         model.summary()
 
         # df_medium = pandas.read_excel(data_dir+'/medium.xls',sheetname="LB medium")
