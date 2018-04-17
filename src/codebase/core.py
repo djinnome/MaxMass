@@ -122,7 +122,7 @@ class MinGenome(object):
             reg_genes = reg_genes[0].tolist()
 
         ############# parameters ################################       
-        df = pandas.read_excel(parameters_f,sheetname='all_clear_v2')
+        df = pandas.read_excel(parameters_f,sheet_name='all_clear_v2')
 
         test_all_genes = df["gene_or_promoter"].tolist()
         not_shared = []
@@ -422,4 +422,4 @@ if __name__ == '__main__':
     mip = build_MIP_by_Cobrapy(model, 0.98)
 
     #### analyze result
-    # getAllgenesInResult()
+    getAllgenesInResult()
