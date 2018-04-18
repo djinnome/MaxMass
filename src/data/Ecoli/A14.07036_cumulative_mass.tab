@@ -1,4 +1,4 @@
-gene_or_promoter	start	end	strand	class	genes_in_TU	start_if_select_as_start	cannot_as_start	Uniprot	Description	Gene	Cellular protein location (according to www.uniprot.org)	A14.07036	A14.07037	A14.07038	cumulativeAbundance
+gene_or_promoter	start	end	strand	class	genes_in_TU	start_if_select_as_start	cannot_as_start	Uniprot	Description	Gene	Cellular protein location (according to www.uniprot.org)	A14.07036	A14.07037	A14.07038	cumulativeMass
 PM00249	148	189	1	promoter	[b0001, b0002, b0003, b0004]	148	0					0.0			0.0
 b0001	190	255	1	gene		190	0	P0AD86				0.017911945107084437			0.017911945107084437
 b0002	337	2799	1	gene		337	0	P00561				0.017911945107084437			0.035823890214168874

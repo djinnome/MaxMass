@@ -126,7 +126,7 @@ class MinGenome(object):
         ############# parameters ################################       
         df = pandas.read_excel(parameters_f,sheet_name='all_clear_v2')
 
-        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', 'cumulativeAbundance']).set_index('gene_or_promoter')['cumulativeAbundance']
+        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', 'cumulativeMass']).set_index('gene_or_promoter')['cumulativeMass'].to_dict()
 
         test_all_genes = df["gene_or_promoter"].tolist()
         not_shared = []
@@ -161,8 +161,9 @@ class MinGenome(object):
         ############# objective ################################
         # currently it tries to maximize the difference between end and start, subject to a bunch of constraints.
         # We will multiply by the weighted sum of all intermediate genes
+
         lp_prob += (pulp.lpSum([y[j]*cum_abundance[j[4:]] for j in genes]) 
-                  - pulp.lpSum([x[j]*cum_abundance[j[4:]] for j in genes])), "Max_abundance"
+                  - pulp.lpSum([x[j]*cum_abundance[j[4:]] for j in genes])), "Max_mass"
 
         def addReactionIndicator(lp_prob):
             for r in me.reactions:
