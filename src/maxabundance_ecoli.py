@@ -26,11 +26,12 @@ model = mg.modelCobra(data_dir,offrxn_f)
 eg_f = "./data/" + project_name + "/essentialGene.txt"
 # eg_f = "./data/" + project_name + "/essentialGenes_Daniel.txt"
 parameters_f = "./data/" + project_name + "/genes_and_promoters.xlsx"
+abundance_f = "./data/" + project_name + "/cumulative_abundance.tab"
 # reg_f = "./data/" + project_name + "/regulatorGene.txt"
 reg_f = None
 TU_Json_file="./data/" + project_name + "/gene_promoter_dict.json"
 lpfilename="./out/" + lpfile_name
 
-mg.build_MIP_by_Cobrapy(model, 0.98,
-		        eg_f,parameters_f, reg_f,TU_Json_file,lpfilename)
+mg.build_abundance_MIP_by_Cobrapy(model, 0.98,
+		        eg_f,parameters_f,abundance_f, reg_f,TU_Json_file,lpfilename)
 
