@@ -126,7 +126,7 @@ class MinGenome(object):
         ############# parameters ################################       
         df = pandas.read_excel(parameters_f,sheet_name='all_clear_v2')
 
-        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', 'cumulativeMass']).set_index('gene_or_promoter')['cumulativeMass'].to_dict()
+        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', 'cumulativeMass']).set_index('gene_or_promoter')['cumulativeMass'].to_dict() 
 
         test_all_genes = df["gene_or_promoter"].tolist()
         not_shared = []
