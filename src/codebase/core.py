@@ -102,7 +102,8 @@ class MinGenome(object):
         abundance_f = './data/e_coli/cumulative_abundance.tab',
         reg_f = "./data/e_coli/regulatorGene.txt",
         TU_Json_file='./data/e_coli/gene_promoter_dict.json',
-        lpfilename="./out/mingenome_ecoli_with_regulation_Bun.lp"):
+        lpfilename="./out/mingenome_ecoli_with_regulation_Bun.lp",
+        abundance_col='cumulativeMass'     ):
 
         M = 1000
         
@@ -126,7 +127,7 @@ class MinGenome(object):
         ############# parameters ################################       
         df = pandas.read_excel(parameters_f,sheet_name='all_clear_v2')
 
-        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', 'cumulativeMass']).set_index('gene_or_promoter')['cumulativeMass'].to_dict() 
+        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', abundance_col]).set_index('gene_or_promoter')[abundance_col].to_dict() 
 
         test_all_genes = df["gene_or_promoter"].tolist()
         not_shared = []
@@ -376,11 +377,11 @@ class MinGenome(object):
         x_list = []
         y_list = []
         status = []
-        def iterate_solve(lp_prob,iter_count):
+        def iterate_solve(lp_prob,iter_count, x_list, y_list, status):
             lp_prob.solve(pulp_solver)
-            # print "----------- " + str(iter_count) + " ------------"
+            print "----------- " + str(iter_count) + " ------------"
             status.append(pulp.LpStatus[lp_prob.status])
-            # print("Status:", pulp.LpStatus[lp_prob.status])
+            print "Status:", pulp.LpStatus[lp_prob.status]
             for v in lp_prob.variables():
                 if "x_u_G_" in v.name and v.varValue == 1:
                     xname = v.name.replace("x_","")
@@ -390,6 +391,7 @@ class MinGenome(object):
                     lp_prob += x[xname] == 1
                     if xname not in x_list: 
                         x_list.append(xname)
+                        print "xname", xname
                 if "y_u_G_" in v.name and v.varValue == 1:
                     yname = v.name.replace("y_","")
                     # yname = yname.replace("J2_","J2-")
@@ -398,13 +400,15 @@ class MinGenome(object):
                     lp_prob += y[yname] == 1
                     if yname not in y_list: 
                         y_list.append(yname)
+                        print "yname", yname
             rhs = iter_count + 1
             lp_prob.constraints['start'].changeRHS(rhs)
             lp_prob.constraints['end'].changeRHS(rhs)
-            return lp_prob
+            return lp_prob, x_list, y_list, status
         
         for iter_count in xrange(1,12):
-            lp_prob = iterate_solve(lp_prob,iter_count)
+            lp_prob,x_list, y_list, status = iterate_solve(lp_prob,iter_count, x_list, y_list, status)
+        #print "xlist", x_list, "ylist", y_list, "status", status
         pandas.DataFrame({'start': x_list, 'end':y_list,'status':status}).to_csv("./out/local_result_essential.csv")
         # pdb.set_trace()
         # with open("./maxlength_solution",'wb') as f:
