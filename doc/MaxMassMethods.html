@@ -11775,6 +11775,33 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Molecular crowding is a biophysical constraint on the ability of microbial cell factories to produce proteins of interest at sufficient titer, rate and yield to become economically viable. To address this issue directly, the Cellular Capacity Optimization project aims to iteratively knock out nonessential regions of the genome that code for highly expressed proteins in order to reclaim that protein capacity for engineered proteins.  In order to rationally guide this process, we have developed <code>MaxMass</code>, an algorithm for iterative reduction of the host proteome without replacement.   <code>MaxMass</code> automatically calculates which genes are essential for the current environment and iteration, and uses these essential genes as constraints on the size of the knockout region, while optimizing for maximum protein mass reclamation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h1><h2 id="Comparison-of-Predictions-with-Experiment">Comparison of Predictions with Experiment<a class="anchor-link" href="#Comparison-of-Predictions-with-Experiment">&#182;</a></h2><p>To evaluate the ability of the algorithm to predict protein reclamation, we used proteomics data obtained from the KHK collection of knockouts.  As a baseline first step, we wished to assess how well the protein distribution of the previous step was able to predict the protein distribution of the subsequent step by assuming that the only expression that changed between steps were the genes that were knocked out.  The results of this analysis are displayed in Figure XX.  Interestingly, there were some proteins whose expression level  increased as a result of the knockout.</p>
+<h2 id="Application-of-MaxMass-to-wild-type-E.-coli-W3110">Application of <code>MaxMass</code> to wild-type <em>E. coli</em> W3110<a class="anchor-link" href="#Application-of-MaxMass-to-wild-type-E.-coli-W3110">&#182;</a></h2><p>We then applied <code>MaxMass</code> using the protein expression from wild-type E. coli strain W3110 <a href="https://www.nature.com/articles/nbt.3418">Schmidt et al 2018</a>  in order to predict which gene knockouts would result in the largest amount of protein reclamation. The results for this experiment are displayed in Figure YY.  We predicted that ZZ% of the proteome could be reclaimed after N steps.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Methods">Methods<a class="anchor-link" href="#Methods">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Max-Mass-Objective">Max Mass Objective<a class="anchor-link" href="#Max-Mass-Objective">&#182;</a></h2><p>The <code>MaxMass</code> algorithm contains the following objective function:</p>
 <p>$$\max\sum_{k\in K}y_k \sum_{i=1}^k{m}_i - \sum_{k\in K} x_k\sum_{i=1}^k{m}_i$$</p>
 <p>where the variables are</p>
