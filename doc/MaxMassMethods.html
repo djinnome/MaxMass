@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Untitled</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>MaxMassMethod</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11808,11 +11808,11 @@ v_\text{biomass} \geq f\cdot v_\text{biomass, max} &amp; &amp; \text{Requires th
 z_g = \prod_{p\in p^g}z_p &amp; p= 1,\ldots, P &amp;  \text{Ensures that a gene is not functional if all of its promoters are deleted}
 \end{array}
 $$</p>
-<h2 id="Gene-Protein-Reaction-constraints">Gene Protein Reaction constraints<a class="anchor-link" href="#Gene-Protein-Reaction-constraints">&#182;</a></h2><h3 id="Single-gene-catalyzes-reaction:-$z_k-\rightarrow-v_j$">Single gene catalyzes reaction: $z_k \rightarrow v_j$<a class="anchor-link" href="#Single-gene-catalyzes-reaction:-$z_k-\rightarrow-v_j$">&#182;</a></h3><p>$$\begin{array}{l}
+<h2 id="Gene-Protein-Reaction-constraints">Gene Protein Reaction constraints<a class="anchor-link" href="#Gene-Protein-Reaction-constraints">&#182;</a></h2><h3 id="Single-gene-catalyzes-reaction:-$k-\rightarrow-v_j$">Single gene catalyzes reaction: $k \rightarrow v_j$<a class="anchor-link" href="#Single-gene-catalyzes-reaction:-$k-\rightarrow-v_j$">&#182;</a></h3><p>$$\begin{array}{l}
 (1 - z_k)\cdot LB \leq v_j \leq (1-z_k)\cdot UB
 \end{array}$$</p>
 <h3 id="Enzyme-dimer-complex-catalyzes-reaction:-$(k_1-\text{-AND-}k_2)-\rightarrow-v_j$">Enzyme dimer complex catalyzes reaction: $(k_1 \text{ AND }k_2) \rightarrow v_j$<a class="anchor-link" href="#Enzyme-dimer-complex-catalyzes-reaction:-$(k_1-\text{-AND-}k_2)-\rightarrow-v_j$">&#182;</a></h3><p>$$
-(1-z_{k_1})\cdot LB  \le:q v_j  \leq (1-z_{k_1})\cdot UB \\
+(1-z_{k_1})\cdot LB  \leq v_j  \leq (1-z_{k_1})\cdot UB \\
 (1-z_{k_2})\cdot LB  \leq v_j  \leq (1-z_{k_2})\cdot UB \\
 $$</p>
 <h3 id="Two-Isozymes-catalyze-reaction:-$-(k_1-\text{-OR-}k_2)-\rightarrow-v_j$">Two Isozymes catalyze reaction: $ (k_1 \text{ OR }k_2) \rightarrow v_j$<a class="anchor-link" href="#Two-Isozymes-catalyze-reaction:-$-(k_1-\text{-OR-}k_2)-\rightarrow-v_j$">&#182;</a></h3><p>$$
