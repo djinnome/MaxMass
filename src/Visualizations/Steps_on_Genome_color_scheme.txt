@@ -1,17 +1,17 @@
 ;; Cutoff/Color Parameters for Pathway Tools Omics Viewer
-;; Generated 16-Jan-2019  19:03:43
+;; Generated 17-Jan-2019  00:32:39
 
 ;; *max-cutoff*
 NIL
 
 ;; *cutoffs*
-(4 5 9 10)
+(5 9 10)
 
 ;; *colors-generated-automatically?*
 NIL
 
 ;; colors (rgb integers)
-(:COLORS 16754944 655104 255 16716800 0)
+(:COLORS 16711935 65535 16716800 0)
 
 ;; *color-range*
 :DEFAULT
