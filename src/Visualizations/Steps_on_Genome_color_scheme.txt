@@ -11,7 +11,7 @@ NIL
 NIL
 
 ;; colors (rgb integers)
-(:COLORS 16711935 65535 16716800 0)
-
+(:COLORS 40563 15113984 29362 15787074   )
+#{'Step05': 40563, 'Step09': 15113984, 'Step10': 29362, 'W3110': 15787074}
 ;; *color-range*
 :DEFAULT
