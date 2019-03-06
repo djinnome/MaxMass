@@ -16,7 +16,7 @@ class MinGenome(object):
         self.model_file = arg
     
     def modelCobra(self,data_dir,
-        offrxn_f=''):
+                   offrxn_f=None):
 
         model = cobra.io.read_sbml_model(self.model_file)
         # model = cobra.io.load_matlab_model(self.model_file)
@@ -25,8 +25,8 @@ class MinGenome(object):
             # add bound to constrain the flux of these reactions to be zero
 
         solution = model.optimize()
-        print solution.status
-        print solution.f
+        print( solution.status )
+        print( solution.f )
         model.summary()
 
         # df_medium = pandas.read_excel(data_dir+'/medium.xls',sheetname="LB medium")
@@ -60,8 +60,8 @@ class MinGenome(object):
             # add bound to constrain the flux of these reactions to be zero
 
         model.optimize()
-        print model.solution.status
-        print model.solution.f
+        print( model.solution.status )
+        print( model.solution.f )
         model.summary()
 
         df_medium = pandas.read_excel(data_dir+'/medium.xls',sheetname="LB medium")
@@ -96,14 +96,14 @@ class MinGenome(object):
                     S[met.id][r.id] = float(value)
         return S
 
-    def build_abundance_MIP_by_Cobrapy(self,me,mu,
+    def build_abundance_MIP_by_Cobrapy(self,me,output,mu,
         eg_f = "./data/e_coli/essentialGene.txt",
         parameters_f = "./data/e_coli/genes_and_promoters.xlsx",
         abundance_f = './data/e_coli/cumulative_abundance.tab',
         reg_f = "./data/e_coli/regulatorGene.txt",
         TU_Json_file='./data/e_coli/gene_promoter_dict.json',
         lpfilename="./out/mingenome_ecoli_with_regulation_Bun.lp",
-        abundance_col='cumulativeMass'     ):
+        cumulative_col='cumulativeMass'     ):
 
         M = 1000
         
@@ -127,7 +127,7 @@ class MinGenome(object):
         ############# parameters ################################       
         df = pandas.read_excel(parameters_f,sheet_name='all_clear_v2')
 
-        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', abundance_col]).set_index('gene_or_promoter')[abundance_col].to_dict() 
+        cum_abundance = pandas.read_table(abundance_f, usecols=['gene_or_promoter', str(cumulative_col)]).set_index('gene_or_promoter')[cumulative_col].to_dict() 
 
         test_all_genes = df["gene_or_promoter"].tolist()
         not_shared = []
@@ -409,7 +409,7 @@ class MinGenome(object):
         for iter_count in xrange(1,12):
             lp_prob,x_list, y_list, status = iterate_solve(lp_prob,iter_count, x_list, y_list, status)
         #print "xlist", x_list, "ylist", y_list, "status", status
-        pandas.DataFrame({'start': x_list, 'end':y_list,'status':status}).to_csv("./out/local_result_essential.csv")
+        pandas.DataFrame({'start': x_list, 'end':y_list,'status':status}).to_csv(output)
         # pdb.set_trace()
         # with open("./maxlength_solution",'wb') as f:
         #     f.write("startus: " + str(pulp.LpStatus[lp_prob.status]) + '\n')
