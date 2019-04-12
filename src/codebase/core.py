@@ -103,7 +103,8 @@ class MinGenome(object):
         reg_f = "./data/e_coli/regulatorGene.txt",
         TU_Json_file='./data/e_coli/gene_promoter_dict.json',
         lpfilename="./out/mingenome_ecoli_with_regulation_Bun.lp",
-        cumulative_col='cumulativeMass'     ):
+        cumulative_col='cumulativeMass' ,
+        num_solutions=11 ):
 
         M = 1000
         
@@ -406,7 +407,7 @@ class MinGenome(object):
             lp_prob.constraints['end'].changeRHS(rhs)
             return lp_prob, x_list, y_list, status
         
-        for iter_count in xrange(1,12):
+        for iter_count in xrange(1, num_solutions):
             lp_prob,x_list, y_list, status = iterate_solve(lp_prob,iter_count, x_list, y_list, status)
         #print "xlist", x_list, "ylist", y_list, "status", status
         pandas.DataFrame({'start': x_list, 'end':y_list,'status':status}).to_csv(output)
