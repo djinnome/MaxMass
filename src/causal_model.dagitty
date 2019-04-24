@@ -1,25 +1,25 @@
-GFP%20expression 1 @0.612,0.162
-LFQ 1 @0.619,0.298
-OD 1 @0.713,0.294
-cell_population 1 @0.712,0.170
-cellular_capacity O @0.716,0.664
-cumate_induction 1 @0.781,-0.080
+GFP%20expression 1 @0.616,0.158
+GFP_LFQ A @0.626,0.269
+GFP_fluorescence A @0.663,0.271
+GFP_iBAQ A @0.587,0.276
+OD A @0.699,0.271
+cell_population 1 @0.698,0.162
+cellular_capacity O @0.669,0.674
+cumate_induction E @0.746,-0.080
 expression_capacity 1 @0.587,0.033
-fluorescence 1 @0.663,0.298
 genetic_background E @0.661,-0.077
-growth_rate 1 @0.746,0.059
-iBAQ 1 @0.566,0.304
-plate_reader 1 @0.662,0.158
-productivity 1 @0.574,0.496
-proteome 1 @0.510,0.178
+growth_rate 1 @0.747,0.162
+plate_reader 1 @0.662,0.159
+productivity 1 @0.587,0.497
+proteome_expression 1 @0.558,0.169
+proteome_iBAQ A @0.544,0.280
 
-GFP%20expression LFQ fluorescence iBAQ productivity
-OD fluorescence
-cell_population OD
+GFP%20expression GFP_LFQ GFP_fluorescence GFP_iBAQ productivity
+cell_population GFP_fluorescence OD
 cumate_induction growth_rate
-expression_capacity GFP%20expression proteome
+expression_capacity GFP%20expression proteome_expression
 genetic_background expression_capacity growth_rate
 growth_rate cell_population cellular_capacity
-plate_reader fluorescence
+plate_reader GFP_fluorescence
 productivity cellular_capacity
-proteome iBAQ productivity
+proteome_expression GFP_iBAQ productivity proteome_iBAQ
