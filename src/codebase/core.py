@@ -18,7 +18,10 @@ class MinGenome(object):
     def modelCobra(self,data_dir,
                    offrxn_f=None):
 
-        model = cobra.io.read_sbml_model(self.model_file)
+        if 'json' in self.model_file:
+            model = cobra.io.load_json_model( self.model_file )
+        else:
+            model = cobra.io.read_sbml_model(self.model_file)
         # model = cobra.io.load_matlab_model(self.model_file)
         if offrxn_f != None:
             offrxn_df = pandas.read_csv(offrxn_f,header=None)
@@ -96,7 +99,7 @@ class MinGenome(object):
                     S[met.id][r.id] = float(value)
         return S
 
-    def build_abundance_MIP_by_Cobrapy(self,me,output,mu,
+    def build_abundance_MIP_by_Cobrapy(self,me,output,objective,
         eg_f = "./data/e_coli/essentialGene.txt",
         parameters_f = "./data/e_coli/genes_and_promoters.xlsx",
         abundance_f = './data/e_coli/cumulative_abundance.tab',
@@ -350,11 +353,13 @@ class MinGenome(object):
 
         # r_biomass = 'bio00006'
         # v[r_biomass].lowBound = mu
-        # lp_prob += v["bio00127_norm"] + v["bio00127b_norm"] >= mu 
-        v['BIOMASS_Ec_iJO1366_WT_53p95M'].lowBound = mu
+        # lp_prob += v["bio00127_norm"] + v["bio00127b_norm"] >= mu
+        for rxn, lowbound in objective:
+            v[rxn].lowBound = lowbound
+        #v['BIOMASS_Ec_iJO1366_WT_53p95M'].lowBound = mu
 
-        v['BIOMASS_Ec_iJO1366_core_53p95M'].lowBound = 0
-        v['BIOMASS_Ec_iJO1366_core_53p95M'].upBound = 0
+        #v['BIOMASS_Ec_iJO1366_core_53p95M'].lowBound = 0
+        #v['BIOMASS_Ec_iJO1366_core_53p95M'].upBound = 0
 
         # lp file is somtime too larget to write
         # lp_prob.writeLP(lpfilename)
@@ -407,7 +412,7 @@ class MinGenome(object):
             lp_prob.constraints['end'].changeRHS(rhs)
             return lp_prob, x_list, y_list, status
         
-        for iter_count in xrange(1, num_solutions):
+        for iter_count in xrange(1, num_solutions+1):
             lp_prob,x_list, y_list, status = iterate_solve(lp_prob,iter_count, x_list, y_list, status)
         #print "xlist", x_list, "ylist", y_list, "status", status
         pandas.DataFrame({'start': x_list, 'end':y_list,'status':status}).to_csv(output)
