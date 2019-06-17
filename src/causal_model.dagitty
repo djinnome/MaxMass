@@ -1,0 +1,27 @@
+GFP%20expression 1 @0.640,0.149
+GFP_LFQ A @0.642,0.262
+GFP_fluorescence A @0.663,0.271
+GFP_iBAQ A @0.615,0.260
+OD A @0.687,0.271
+cell_population 1 @0.687,0.158
+cellular_capacity O @0.659,0.623
+cumate_induction E @0.670,-0.129
+expression_capacity 1 @0.640,0.039
+genetic_background E @0.670,-0.021
+growth_rate 1 @0.720,0.071
+plate_reader 1 @0.663,0.137
+productivity 1 @0.610,0.413
+proteome_expression 1 @0.602,0.151
+proteome_iBAQ A @0.587,0.260
+total_protein_per_cell_volume 1 @0.578,0.149
+
+GFP%20expression GFP_LFQ GFP_fluorescence GFP_iBAQ productivity
+cell_population GFP_fluorescence OD
+cumate_induction growth_rate proteome_expression
+expression_capacity GFP%20expression proteome_expression
+genetic_background expression_capacity growth_rate
+growth_rate cell_population cellular_capacity
+plate_reader GFP_fluorescence
+productivity cellular_capacity
+proteome_expression GFP_iBAQ productivity proteome_iBAQ
+total_protein_per_cell_volume proteome_iBAQ

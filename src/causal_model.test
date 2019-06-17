@@ -1,0 +1,232 @@
+The model implies the following conditional independences:
+
+GFP expression ⊥ OD | cell_population
+GFP expression ⊥ OD | growth_rate
+GFP expression ⊥ OD | genetic_background
+GFP expression ⊥ OD | expression_capacity
+GFP expression ⊥ cell_population | growth_rate
+GFP expression ⊥ cell_population | genetic_background
+GFP expression ⊥ cell_population | expression_capacity
+GFP expression ⊥ cellular_capacity | growth_rate, productivity
+GFP expression ⊥ cellular_capacity | cumate_induction, genetic_background, productivity
+GFP expression ⊥ cellular_capacity | cumate_induction, expression_capacity, productivity
+GFP expression ⊥ cellular_capacity | expression_capacity, productivity, proteome_expression
+GFP expression ⊥ cumate_induction
+GFP expression ⊥ genetic_background | expression_capacity
+GFP expression ⊥ growth_rate | genetic_background
+GFP expression ⊥ growth_rate | expression_capacity
+GFP expression ⊥ plate_reader
+GFP expression ⊥ proteome_expression | expression_capacity
+GFP expression ⊥ proteome_iBAQ | proteome_expression
+GFP expression ⊥ proteome_iBAQ | expression_capacity
+GFP expression ⊥ total_protein_per_cell_volume
+GFP_LFQ ⊥ GFP_fluorescence | GFP expression
+GFP_LFQ ⊥ GFP_iBAQ | GFP expression
+GFP_LFQ ⊥ OD | cell_population
+GFP_LFQ ⊥ OD | growth_rate
+GFP_LFQ ⊥ OD | genetic_background
+GFP_LFQ ⊥ OD | expression_capacity
+GFP_LFQ ⊥ OD | GFP expression
+GFP_LFQ ⊥ cell_population | growth_rate
+GFP_LFQ ⊥ cell_population | genetic_background
+GFP_LFQ ⊥ cell_population | expression_capacity
+GFP_LFQ ⊥ cell_population | GFP expression
+GFP_LFQ ⊥ cellular_capacity | growth_rate, productivity
+GFP_LFQ ⊥ cellular_capacity | cumate_induction, genetic_background, productivity
+GFP_LFQ ⊥ cellular_capacity | cumate_induction, expression_capacity, productivity
+GFP_LFQ ⊥ cellular_capacity | expression_capacity, productivity, proteome_expression
+GFP_LFQ ⊥ cellular_capacity | GFP expression
+GFP_LFQ ⊥ cumate_induction
+GFP_LFQ ⊥ expression_capacity | GFP expression
+GFP_LFQ ⊥ genetic_background | expression_capacity
+GFP_LFQ ⊥ genetic_background | GFP expression
+GFP_LFQ ⊥ growth_rate | genetic_background
+GFP_LFQ ⊥ growth_rate | expression_capacity
+GFP_LFQ ⊥ growth_rate | GFP expression
+GFP_LFQ ⊥ plate_reader
+GFP_LFQ ⊥ productivity | GFP expression
+GFP_LFQ ⊥ proteome_expression | expression_capacity
+GFP_LFQ ⊥ proteome_expression | GFP expression
+GFP_LFQ ⊥ proteome_iBAQ | proteome_expression
+GFP_LFQ ⊥ proteome_iBAQ | expression_capacity
+GFP_LFQ ⊥ proteome_iBAQ | GFP expression
+GFP_LFQ ⊥ total_protein_per_cell_volume
+GFP_fluorescence ⊥ GFP_iBAQ | GFP expression, proteome_expression
+GFP_fluorescence ⊥ GFP_iBAQ | GFP expression, cumate_induction, expression_capacity
+GFP_fluorescence ⊥ GFP_iBAQ | GFP expression, cumate_induction, genetic_background
+GFP_fluorescence ⊥ GFP_iBAQ | GFP expression, growth_rate
+GFP_fluorescence ⊥ GFP_iBAQ | GFP expression, cell_population
+GFP_fluorescence ⊥ OD | cell_population
+GFP_fluorescence ⊥ cellular_capacity | growth_rate, productivity
+GFP_fluorescence ⊥ cellular_capacity | cell_population, cumate_induction, genetic_background, productivity
+GFP_fluorescence ⊥ cellular_capacity | cell_population, cumate_induction, expression_capacity, productivity
+GFP_fluorescence ⊥ cellular_capacity | cell_population, expression_capacity, productivity, proteome_expression
+GFP_fluorescence ⊥ cellular_capacity | GFP expression, growth_rate
+GFP_fluorescence ⊥ cellular_capacity | GFP expression, cell_population
+GFP_fluorescence ⊥ cumate_induction | genetic_background, growth_rate
+GFP_fluorescence ⊥ cumate_induction | expression_capacity, growth_rate
+GFP_fluorescence ⊥ cumate_induction | cell_population, genetic_background
+GFP_fluorescence ⊥ cumate_induction | cell_population, expression_capacity
+GFP_fluorescence ⊥ cumate_induction | GFP expression, growth_rate
+GFP_fluorescence ⊥ cumate_induction | GFP expression, cell_population
+GFP_fluorescence ⊥ expression_capacity | GFP expression, genetic_background
+GFP_fluorescence ⊥ expression_capacity | GFP expression, growth_rate
+GFP_fluorescence ⊥ expression_capacity | GFP expression, cell_population
+GFP_fluorescence ⊥ genetic_background | expression_capacity, growth_rate
+GFP_fluorescence ⊥ genetic_background | cell_population, expression_capacity
+GFP_fluorescence ⊥ genetic_background | GFP expression, growth_rate
+GFP_fluorescence ⊥ genetic_background | GFP expression, cell_population
+GFP_fluorescence ⊥ growth_rate | cell_population, genetic_background
+GFP_fluorescence ⊥ growth_rate | cell_population, expression_capacity
+GFP_fluorescence ⊥ growth_rate | GFP expression, cell_population
+GFP_fluorescence ⊥ productivity | GFP expression, proteome_expression
+GFP_fluorescence ⊥ productivity | GFP expression, cumate_induction, expression_capacity
+GFP_fluorescence ⊥ productivity | GFP expression, cumate_induction, genetic_background
+GFP_fluorescence ⊥ productivity | GFP expression, growth_rate
+GFP_fluorescence ⊥ productivity | GFP expression, cell_population
+GFP_fluorescence ⊥ proteome_expression | cumate_induction, expression_capacity
+GFP_fluorescence ⊥ proteome_expression | expression_capacity, growth_rate
+GFP_fluorescence ⊥ proteome_expression | cell_population, expression_capacity
+GFP_fluorescence ⊥ proteome_expression | GFP expression, cumate_induction, genetic_background
+GFP_fluorescence ⊥ proteome_expression | GFP expression, growth_rate
+GFP_fluorescence ⊥ proteome_expression | GFP expression, cell_population
+GFP_fluorescence ⊥ proteome_iBAQ | proteome_expression
+GFP_fluorescence ⊥ proteome_iBAQ | cumate_induction, expression_capacity
+GFP_fluorescence ⊥ proteome_iBAQ | expression_capacity, growth_rate
+GFP_fluorescence ⊥ proteome_iBAQ | cell_population, expression_capacity
+GFP_fluorescence ⊥ proteome_iBAQ | GFP expression, cumate_induction, genetic_background
+GFP_fluorescence ⊥ proteome_iBAQ | GFP expression, growth_rate
+GFP_fluorescence ⊥ proteome_iBAQ | GFP expression, cell_population
+GFP_fluorescence ⊥ total_protein_per_cell_volume
+GFP_iBAQ ⊥ OD | cell_population
+GFP_iBAQ ⊥ OD | growth_rate
+GFP_iBAQ ⊥ OD | cumate_induction, genetic_background
+GFP_iBAQ ⊥ OD | cumate_induction, expression_capacity
+GFP_iBAQ ⊥ OD | expression_capacity, proteome_expression
+GFP_iBAQ ⊥ OD | GFP expression, proteome_expression
+GFP_iBAQ ⊥ cell_population | growth_rate
+GFP_iBAQ ⊥ cell_population | cumate_induction, genetic_background
+GFP_iBAQ ⊥ cell_population | cumate_induction, expression_capacity
+GFP_iBAQ ⊥ cell_population | expression_capacity, proteome_expression
+GFP_iBAQ ⊥ cell_population | GFP expression, proteome_expression
+GFP_iBAQ ⊥ cellular_capacity | growth_rate, productivity
+GFP_iBAQ ⊥ cellular_capacity | cumate_induction, genetic_background, productivity
+GFP_iBAQ ⊥ cellular_capacity | cumate_induction, expression_capacity, productivity
+GFP_iBAQ ⊥ cellular_capacity | expression_capacity, productivity, proteome_expression
+GFP_iBAQ ⊥ cellular_capacity | GFP expression, proteome_expression
+GFP_iBAQ ⊥ cumate_induction | expression_capacity, proteome_expression
+GFP_iBAQ ⊥ cumate_induction | GFP expression, proteome_expression
+GFP_iBAQ ⊥ expression_capacity | GFP expression, proteome_expression
+GFP_iBAQ ⊥ genetic_background | expression_capacity
+GFP_iBAQ ⊥ genetic_background | GFP expression, proteome_expression
+GFP_iBAQ ⊥ growth_rate | cumate_induction, genetic_background
+GFP_iBAQ ⊥ growth_rate | cumate_induction, expression_capacity
+GFP_iBAQ ⊥ growth_rate | expression_capacity, proteome_expression
+GFP_iBAQ ⊥ growth_rate | GFP expression, proteome_expression
+GFP_iBAQ ⊥ plate_reader
+GFP_iBAQ ⊥ productivity | GFP expression, proteome_expression
+GFP_iBAQ ⊥ proteome_iBAQ | proteome_expression
+GFP_iBAQ ⊥ total_protein_per_cell_volume
+OD ⊥ cellular_capacity | growth_rate
+OD ⊥ cellular_capacity | cell_population
+OD ⊥ cumate_induction | growth_rate
+OD ⊥ cumate_induction | cell_population
+OD ⊥ expression_capacity | genetic_background
+OD ⊥ expression_capacity | growth_rate
+OD ⊥ expression_capacity | cell_population
+OD ⊥ genetic_background | growth_rate
+OD ⊥ genetic_background | cell_population
+OD ⊥ growth_rate | cell_population
+OD ⊥ plate_reader
+OD ⊥ productivity | GFP expression, proteome_expression
+OD ⊥ productivity | expression_capacity, proteome_expression
+OD ⊥ productivity | cumate_induction, expression_capacity
+OD ⊥ productivity | cumate_induction, genetic_background
+OD ⊥ productivity | growth_rate
+OD ⊥ productivity | cell_population
+OD ⊥ proteome_expression | cumate_induction, expression_capacity
+OD ⊥ proteome_expression | cumate_induction, genetic_background
+OD ⊥ proteome_expression | growth_rate
+OD ⊥ proteome_expression | cell_population
+OD ⊥ proteome_iBAQ | proteome_expression
+OD ⊥ proteome_iBAQ | cumate_induction, expression_capacity
+OD ⊥ proteome_iBAQ | cumate_induction, genetic_background
+OD ⊥ proteome_iBAQ | growth_rate
+OD ⊥ proteome_iBAQ | cell_population
+OD ⊥ total_protein_per_cell_volume
+cell_population ⊥ cellular_capacity | growth_rate
+cell_population ⊥ cumate_induction | growth_rate
+cell_population ⊥ expression_capacity | genetic_background
+cell_population ⊥ expression_capacity | growth_rate
+cell_population ⊥ genetic_background | growth_rate
+cell_population ⊥ plate_reader
+cell_population ⊥ productivity | GFP expression, proteome_expression
+cell_population ⊥ productivity | expression_capacity, proteome_expression
+cell_population ⊥ productivity | cumate_induction, expression_capacity
+cell_population ⊥ productivity | cumate_induction, genetic_background
+cell_population ⊥ productivity | growth_rate
+cell_population ⊥ proteome_expression | cumate_induction, expression_capacity
+cell_population ⊥ proteome_expression | cumate_induction, genetic_background
+cell_population ⊥ proteome_expression | growth_rate
+cell_population ⊥ proteome_iBAQ | proteome_expression
+cell_population ⊥ proteome_iBAQ | cumate_induction, expression_capacity
+cell_population ⊥ proteome_iBAQ | cumate_induction, genetic_background
+cell_population ⊥ proteome_iBAQ | growth_rate
+cell_population ⊥ total_protein_per_cell_volume
+cellular_capacity ⊥ cumate_induction | expression_capacity, growth_rate, proteome_expression
+cellular_capacity ⊥ cumate_induction | GFP expression, growth_rate, proteome_expression
+cellular_capacity ⊥ cumate_induction | growth_rate, productivity
+cellular_capacity ⊥ expression_capacity | GFP expression, cumate_induction, genetic_background, proteome_expression
+cellular_capacity ⊥ expression_capacity | cumate_induction, genetic_background, productivity
+cellular_capacity ⊥ expression_capacity | GFP expression, growth_rate, proteome_expression
+cellular_capacity ⊥ expression_capacity | growth_rate, productivity
+cellular_capacity ⊥ genetic_background | cumate_induction, expression_capacity, growth_rate
+cellular_capacity ⊥ genetic_background | expression_capacity, growth_rate, proteome_expression
+cellular_capacity ⊥ genetic_background | GFP expression, growth_rate, proteome_expression
+cellular_capacity ⊥ genetic_background | growth_rate, productivity
+cellular_capacity ⊥ plate_reader
+cellular_capacity ⊥ proteome_expression | cumate_induction, expression_capacity, productivity
+cellular_capacity ⊥ proteome_expression | cumate_induction, genetic_background, productivity
+cellular_capacity ⊥ proteome_expression | growth_rate, productivity
+cellular_capacity ⊥ proteome_iBAQ | proteome_expression
+cellular_capacity ⊥ proteome_iBAQ | cumate_induction, expression_capacity, productivity
+cellular_capacity ⊥ proteome_iBAQ | cumate_induction, genetic_background, productivity
+cellular_capacity ⊥ proteome_iBAQ | growth_rate, productivity
+cellular_capacity ⊥ total_protein_per_cell_volume
+cumate_induction ⊥ expression_capacity
+cumate_induction ⊥ genetic_background
+cumate_induction ⊥ plate_reader
+cumate_induction ⊥ productivity | GFP expression, proteome_expression
+cumate_induction ⊥ productivity | expression_capacity, proteome_expression
+cumate_induction ⊥ proteome_iBAQ | proteome_expression
+cumate_induction ⊥ total_protein_per_cell_volume
+expression_capacity ⊥ growth_rate | genetic_background
+expression_capacity ⊥ plate_reader
+expression_capacity ⊥ productivity | GFP expression, proteome_expression
+expression_capacity ⊥ proteome_iBAQ | proteome_expression
+expression_capacity ⊥ total_protein_per_cell_volume
+genetic_background ⊥ plate_reader
+genetic_background ⊥ productivity | GFP expression, proteome_expression
+genetic_background ⊥ productivity | expression_capacity
+genetic_background ⊥ proteome_expression | expression_capacity
+genetic_background ⊥ proteome_iBAQ | proteome_expression
+genetic_background ⊥ proteome_iBAQ | expression_capacity
+genetic_background ⊥ total_protein_per_cell_volume
+growth_rate ⊥ plate_reader
+growth_rate ⊥ productivity | GFP expression, proteome_expression
+growth_rate ⊥ productivity | expression_capacity, proteome_expression
+growth_rate ⊥ productivity | cumate_induction, expression_capacity
+growth_rate ⊥ productivity | cumate_induction, genetic_background
+growth_rate ⊥ proteome_expression | cumate_induction, expression_capacity
+growth_rate ⊥ proteome_expression | cumate_induction, genetic_background
+growth_rate ⊥ proteome_iBAQ | proteome_expression
+growth_rate ⊥ proteome_iBAQ | cumate_induction, expression_capacity
+growth_rate ⊥ proteome_iBAQ | cumate_induction, genetic_background
+growth_rate ⊥ total_protein_per_cell_volume
+plate_reader ⊥ productivity
+plate_reader ⊥ proteome_expression
+plate_reader ⊥ proteome_iBAQ
+plate_reader ⊥ total_protein_per_cell_volume
+productivity ⊥ proteome_iBAQ | proteome_expression
+productivity ⊥ total_protein_per_cell_volume
+proteome_expression ⊥ total_protein_per_cell_volume
