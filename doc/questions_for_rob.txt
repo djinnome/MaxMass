@@ -1,0 +1,17 @@
+1. How can we estimate the volume of the cell strain?  Can we get that for the paper?
+2. What should be the denominator for the induced vs uninduced? WT?  or uninduced?
+3. Metric/measure for change in expression distribution?
+   * KL-divergence
+   * Wasserstein
+   * Euclidean
+4. Potential sources of unobserved confounders?
+   * Cell stress
+   * differences in cell volume
+   * differences in growth rates
+   * differences in redox state
+   * changes in TRN
+5. Discussion points:
+   * individual flu expression is top 10, but not top 10 KO
+6. Validation of method?
+   * What can you knock out?  Can we include it in the paper?
+
